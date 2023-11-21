@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartRecallScene.unity
     guid: 09573a0e7a30a48c492d39171867b443
+  - enabled: 1
+    path: Assets/Scenes/LastFreeRecallScene.unity
+    guid: 963248e353117f745a24f6d1991dc2be
   m_configObjects: {}

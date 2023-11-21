@@ -15,10 +15,7 @@ public class CountBuildings : MonoBehaviour
 
     float minDist = 15f;
 
-    //limit spacebar press 
-    public float doubleTapTime = 1f;
-    private float elapsedTime;
-    private int pressCount;
+    List<string> buildingsVisited = new List<string>(); // keeps track of buildings visited 
 
     string filename = "";
     float time = 0f;
@@ -52,43 +49,30 @@ public class CountBuildings : MonoBehaviour
     void Update()
     {
         float dist = Vector3.Distance(FindClosestRedBuilding().transform.position, transform.position);
-        if(dist <= minDist)
+        if (buildingsVisited.Contains(FindClosestRedBuilding().name)) { }
+        else
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (dist <= minDist)
             {
-                pressCount++;
-
-                buildingCounter++;
-                input.text = "" + buildingCounter;
-
-                if (pressCount > 0)
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    elapsedTime += Time.deltaTime;
-
-                    if (elapsedTime > doubleTapTime)
-                    {
-                        resetPressTimer();
-                    }
-                    else if (pressCount == 2) // otherwise if the press count is 2
-                    {
-                        // double pressed within the time limit
-                        // do stuff
-                        resetPressTimer();
-                    }
-                }
-
-            }
-
-
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                if (buildingCounter > 0)
-                {
-                    buildingCounter--;
+                    buildingCounter++;
+                    buildingsVisited.Add(FindClosestRedBuilding().name);
                     input.text = "" + buildingCounter;
                 }
+
+
+                if (Input.GetKeyDown(KeyCode.P))
+                {
+                    if (buildingCounter > 0)
+                    {
+                        buildingCounter--;
+                        input.text = "" + buildingCounter;
+                    }
+                }
             }
-        }  
+        }
+
 
         if (buildingCounter == 19)
         {
@@ -164,12 +148,6 @@ public class CountBuildings : MonoBehaviour
             }
         }
         return closest;
-    }
-
-    private void resetPressTimer()
-    {
-        pressCount = 0;
-        elapsedTime = 0;
     }
 
 }

@@ -5,18 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class BeginRecall : MonoBehaviour
 {
+    public static int trialNum = 0; 
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        trialNum++; 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(trialNum >= 5)
         {
-            SceneManager.LoadScene("FreeRecallScene");
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene("LastFreeRecallScene");
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene("FreeRecallScene");
+            }
         }
     }
 }
