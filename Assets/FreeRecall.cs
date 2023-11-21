@@ -31,6 +31,7 @@ public class FreeRecall : MonoBehaviour
         returnButton.onClick.AddListener(returnToEnvironment);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        input.ActivateInputField();
 
         trialNum++;
         if (trialNum > 5)

@@ -7,7 +7,7 @@ using System.IO;
 using System;
 using UnityEngine.UI;
 
-public class LastFreeRecall : MonoBehaviour
+public class LastFreeRecall: MonoBehaviour
 {
     public Button quitButton;
     public Button returnButton;
@@ -29,17 +29,14 @@ public class LastFreeRecall : MonoBehaviour
 
     void Start()
     {
-        quitButton.onClick.AddListener(quit);
-        returnButton.onClick.AddListener(returnToEnvironment);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        input.ActivateInputField();
+
+        quitButton.onClick.AddListener(quit);
+        returnButton.onClick.AddListener(returnToEnvironment);
 
         trialNum++;
-        if (trialNum > 5)
-        {
-            Application.Quit();
-        }
-
         filename = Application.dataPath + "/recallList.csv";
     }
 

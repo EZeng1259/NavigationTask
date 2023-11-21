@@ -10,7 +10,9 @@ public class BeginRecall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        trialNum++; 
+        trialNum++;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     // Update is called once per frame

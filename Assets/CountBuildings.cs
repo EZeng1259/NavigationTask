@@ -44,6 +44,9 @@ public class CountBuildings : MonoBehaviour
     {
         trialNum++;
         filename = Application.dataPath + "/test.csv";
+        TextWriter writer = new StreamWriter(filename, true);
+        writer.WriteLine("player ID, trial, timestamp, x, y, z, rotx, roty, rotz");
+        writer.Close();
     }
 
     void Update()
@@ -112,11 +115,7 @@ public class CountBuildings : MonoBehaviour
     {
         if (dataPoints.Count > 0)
         {
-            TextWriter writer = File.AppendText(filename);
-            writer.WriteLine("player ID, trial, timestamp, x, y, z, rotx, roty, rotz");
-            writer.Close();
-
-            writer = new StreamWriter(filename, true);
+            TextWriter writer = new StreamWriter(filename, true);
 
             for (int i = 0; i < dataPoints.Count; i++)
             {
