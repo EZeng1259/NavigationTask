@@ -52,7 +52,7 @@ public class WriteBuildings : MonoBehaviour
 
     public void returnToEnvironment()
     {
-        SceneManager.LoadScene("MazeScene");
+        SceneManager.LoadScene("NavigationScene");
     }
 
 }

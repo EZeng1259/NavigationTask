@@ -22,6 +22,7 @@ TagManager:
   - RedBuilding15
   - RedBuilding16
   - RedBuilding17
+  - RedBuilding
   layers:
   - Default
   - TransparentFX

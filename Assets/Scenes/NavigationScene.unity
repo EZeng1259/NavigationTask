@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 28380820}
   - component: {fileID: 28380819}
   - component: {fileID: 28380822}
+  - component: {fileID: 28380823}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -406,7 +407,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 1756096050}
   buildingCounter: 0
-  navigateCounter: 0
+  trialNum: 0
+  interval: 250
+  dataPoints: []
+--- !u!114 &28380823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28380818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944cb47dcdd044d78a681e0225ec1b54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &73202828
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +732,7 @@ GameObject:
   - component: {fileID: 159847743}
   m_Layer: 0
   m_Name: Red Building 17
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1008,7 +1023,7 @@ GameObject:
   - component: {fileID: 184677820}
   m_Layer: 0
   m_Name: Red Building 1
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1105,7 +1120,7 @@ GameObject:
   - component: {fileID: 220451895}
   m_Layer: 0
   m_Name: Red Building 14
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1299,7 +1314,7 @@ GameObject:
   - component: {fileID: 313101836}
   m_Layer: 0
   m_Name: Red Building 2
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2366,7 +2381,7 @@ GameObject:
   - component: {fileID: 575628036}
   m_Layer: 0
   m_Name: Red Building 4
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2561,7 +2576,7 @@ GameObject:
   - component: {fileID: 600938085}
   m_Layer: 0
   m_Name: Red Building 3
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2852,7 +2867,7 @@ GameObject:
   - component: {fileID: 736318785}
   m_Layer: 0
   m_Name: Red Building 6
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3461,7 +3476,7 @@ GameObject:
   - component: {fileID: 1018957386}
   m_Layer: 0
   m_Name: Red Building 13
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3655,7 +3670,7 @@ GameObject:
   - component: {fileID: 1031731912}
   m_Layer: 0
   m_Name: Red Building 16
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3908,7 +3923,7 @@ GameObject:
   - component: {fileID: 1140211321}
   m_Layer: 0
   m_Name: Red Building 19
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4102,7 +4117,7 @@ GameObject:
   - component: {fileID: 1185423527}
   m_Layer: 0
   m_Name: Red Building 5
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4327,7 +4342,7 @@ GameObject:
   - component: {fileID: 1209316941}
   m_Layer: 0
   m_Name: Red Building 9
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4715,7 +4730,7 @@ GameObject:
   - component: {fileID: 1325995759}
   m_Layer: 0
   m_Name: Red Building 15
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5493,7 +5508,7 @@ GameObject:
   - component: {fileID: 1513656618}
   m_Layer: 0
   m_Name: Red Building 11
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5975,7 +5990,7 @@ GameObject:
   - component: {fileID: 1702159243}
   m_Layer: 0
   m_Name: Red Building 18
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6401,7 +6416,7 @@ GameObject:
   - component: {fileID: 1793945153}
   m_Layer: 0
   m_Name: Red Building 7
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6566,7 +6581,7 @@ GameObject:
   - component: {fileID: 1938184485}
   m_Layer: 0
   m_Name: Red Building 10
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6663,7 +6678,7 @@ GameObject:
   - component: {fileID: 1958877225}
   m_Layer: 0
   m_Name: Red Building 8
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6760,7 +6775,7 @@ GameObject:
   - component: {fileID: 1985897436}
   m_Layer: 0
   m_Name: Red Building 12
-  m_TagString: Untagged
+  m_TagString: RedBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

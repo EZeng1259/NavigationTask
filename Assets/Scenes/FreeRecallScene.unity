@@ -828,12 +828,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 848317111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b1886add1e824e8198259d887f22bc7, type: 3}
+  m_Script: {fileID: 11500000, guid: 75252c5e3fe374bfda6a9a8b41c1672b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   quitButton: {fileID: 1901516282}
   returnButton: {fileID: 528921644}
   input: {fileID: 1671263940}
+  recallList: []
 --- !u!1 &1010538535
 GameObject:
   m_ObjectHideFlags: 0

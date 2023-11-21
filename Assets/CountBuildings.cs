@@ -13,6 +13,13 @@ public class CountBuildings : MonoBehaviour
     public int buildingCounter = 0; //counts number of red buildings encountered
     public int trialNum = 0; //counts number of times player has navigated the environment
 
+    float minDist = 15f;
+
+    //limit spacebar press 
+    public float doubleTapTime = 1f;
+    private float elapsedTime;
+    private int pressCount;
+
     string filename = "";
     float time = 0f;
     [SerializeField] float interval = 250f;
@@ -22,6 +29,7 @@ public class CountBuildings : MonoBehaviour
     {
         public string timestamp;
         public float x;
+        public float y; 
         public float z;
         public float rotx;
         public float roty;
@@ -43,25 +51,48 @@ public class CountBuildings : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        float dist = Vector3.Distance(FindClosestRedBuilding().transform.position, transform.position);
+        if(dist <= minDist)
         {
-            buildingCounter++;
-            input.text = "" + buildingCounter;
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (buildingCounter > 0)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                buildingCounter--;
+                pressCount++;
+
+                buildingCounter++;
                 input.text = "" + buildingCounter;
+
+                if (pressCount > 0)
+                {
+                    elapsedTime += Time.deltaTime;
+
+                    if (elapsedTime > doubleTapTime)
+                    {
+                        resetPressTimer();
+                    }
+                    else if (pressCount == 2) // otherwise if the press count is 2
+                    {
+                        // double pressed within the time limit
+                        // do stuff
+                        resetPressTimer();
+                    }
+                }
+
             }
-        }
+
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                if (buildingCounter > 0)
+                {
+                    buildingCounter--;
+                    input.text = "" + buildingCounter;
+                }
+            }
+        }  
 
         if (buildingCounter == 19)
         {
-            SceneManager.LoadScene("FreeRecallScene");
+            SceneManager.LoadScene("StartRecallScene");
         }
 
         time += Time.deltaTime;
@@ -78,6 +109,7 @@ public class CountBuildings : MonoBehaviour
             Datapoint sample = new Datapoint();
             sample.timestamp = currTime.ToString();
             sample.x = x;
+            sample.y = y; 
             sample.z = z;
             sample.rotx = rotate_x;
             sample.roty = rotate_y;
@@ -89,21 +121,22 @@ public class CountBuildings : MonoBehaviour
             time++;
 
         writeCSV();
+        dataPoints.Clear(); 
     }
 
     public void writeCSV()
     {
         if (dataPoints.Count > 0)
         {
-            TextWriter writer = new StreamWriter(filename, false);
-            writer.WriteLine("trial, x, y, z, rotx, roty, rotz");
+            TextWriter writer = File.AppendText(filename);
+            writer.WriteLine("trial, timestamp, x, y, z, rotx, roty, rotz");
             writer.Close();
 
             writer = new StreamWriter(filename, true);
 
             for (int i = 0; i < dataPoints.Count; i++)
             {
-                writer.WriteLine(dataPoints[i].timestamp + "," + dataPoints[i].x + "," +
+                writer.WriteLine(trialNum + "," + dataPoints[i].timestamp + "," + dataPoints[i].x + "," + dataPoints[i].y + "," +
                     dataPoints[i].z + "," + dataPoints[i].rotx + "," + dataPoints[i].roty + "," +
                     dataPoints[i].rotz);
             }
@@ -112,5 +145,31 @@ public class CountBuildings : MonoBehaviour
         }
 
     }
-    
+
+    public GameObject FindClosestRedBuilding()
+    {
+        GameObject[] redBuildings;
+        redBuildings = GameObject.FindGameObjectsWithTag("RedBuilding");
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject go in redBuildings)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        return closest;
+    }
+
+    private void resetPressTimer()
+    {
+        pressCount = 0;
+        elapsedTime = 0;
+    }
+
 }
