@@ -113,14 +113,14 @@ public class CountBuildings : MonoBehaviour
         if (dataPoints.Count > 0)
         {
             TextWriter writer = File.AppendText(filename);
-            writer.WriteLine("trial, timestamp, x, y, z, rotx, roty, rotz");
+            writer.WriteLine("player ID, trial, timestamp, x, y, z, rotx, roty, rotz");
             writer.Close();
 
             writer = new StreamWriter(filename, true);
 
             for (int i = 0; i < dataPoints.Count; i++)
             {
-                writer.WriteLine(trialNum + "," + dataPoints[i].timestamp + "," + dataPoints[i].x + "," + dataPoints[i].y + "," +
+                writer.WriteLine(PlayerID.id + "," + trialNum + "," + dataPoints[i].timestamp + "," + dataPoints[i].x + "," + dataPoints[i].y + "," +
                     dataPoints[i].z + "," + dataPoints[i].rotx + "," + dataPoints[i].roty + "," +
                     dataPoints[i].rotz);
             }

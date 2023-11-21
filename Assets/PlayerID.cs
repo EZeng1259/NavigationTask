@@ -6,10 +6,13 @@ using System.IO;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class GetInput : MonoBehaviour
+public class PlayerID: MonoBehaviour
 {
     public Button button;
     public TMP_InputField input;
+
+    //public static PlayerID Instance;
+    public static string id; 
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,7 @@ public class GetInput : MonoBehaviour
 
     public void getInput()
     {
+        id = input.text;
         SceneManager.LoadScene("NavigationScene");
     }
 }

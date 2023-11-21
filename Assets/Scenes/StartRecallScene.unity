@@ -660,8 +660,8 @@ RectTransform:
   - {fileID: 326328500}
   - {fileID: 817532267}
   - {fileID: 407470393}
-  - {fileID: 1438624913}
   - {fileID: 1607203638}
+  - {fileID: 1438624913}
   - {fileID: 614529360}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1152,7 +1152,7 @@ RectTransform:
   m_Children:
   - {fileID: 1516479697}
   m_Father: {fileID: 622155992}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1437,7 +1437,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 622155992}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1464,7 +1464,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: And then press 'Enter'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

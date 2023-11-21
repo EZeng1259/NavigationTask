@@ -1,8 +1,0 @@
-bakery
-asdf
-blue
-green 
-red
-purple
-green
-yellow

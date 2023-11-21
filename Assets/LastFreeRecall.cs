@@ -7,7 +7,7 @@ using System.IO;
 using System;
 using UnityEngine.UI;
 
-public class ReturnToNavigation : MonoBehaviour
+public class LastFreeRecall : MonoBehaviour
 {
     public Button quitButton;
     public Button returnButton;
@@ -19,10 +19,10 @@ public class ReturnToNavigation : MonoBehaviour
     [System.Serializable]
     public class Recall
     {
-        public string playerName; 
+        public string playerName;
         public string timestamp;
         public int trialNum;
-        public string buildingName; 
+        public string buildingName;
     }
 
     public List<Recall> itemList = new List<Recall>();
@@ -57,7 +57,7 @@ public class ReturnToNavigation : MonoBehaviour
             input.ActivateInputField();
         }
         writeList();
-        itemList.Clear(); 
+        itemList.Clear();
     }
 
     public void quit()
@@ -72,12 +72,12 @@ public class ReturnToNavigation : MonoBehaviour
 
     public void writeList()
     {
-        if(itemList.Count > 0)
+        if (itemList.Count > 0)
         {
             TextWriter writer = File.AppendText(filename);
             for (int i = 0; i < itemList.Count; i++)
             {
-                writer.WriteLine(itemList[i].trialNum + "," + itemList[i].timestamp + "," + itemList[i].buildingName);
+                writer.WriteLine(PlayerID.id + "," + itemList[i].trialNum + "," + itemList[i].timestamp + "," + itemList[i].buildingName);
             }
 
             writer.Close();
