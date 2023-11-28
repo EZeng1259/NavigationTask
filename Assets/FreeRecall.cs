@@ -39,16 +39,20 @@ public class FreeRecall : MonoBehaviour
             Application.Quit();
         }
 
-        filename = Application.dataPath + "/recallList.csv";
+        filename = Application.dataPath + "/recallList_" + PlayerID.id +  ".csv";
+
+        TextWriter writer = new StreamWriter(filename, true);
+        writer.WriteLine("player ID, round, timestamp, shop name");
+        writer.Close();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            DateTime time = System.DateTime.Now;
+            String time = System.DateTime.Now.ToString("hh:mm:ss:fff");
             Recall item = new Recall();
-            item.timestamp = time.ToString();
+            item.timestamp = time;
             item.trialNum = trialNum;
             item.buildingName = input.text;
             itemList.Add(item);

@@ -43,8 +43,8 @@ public class CountBuildings : MonoBehaviour
     void Start()
     {
         trialNum++;
-        filename = Application.dataPath + "/test.csv";
-        TextWriter writer = new StreamWriter(filename, true);
+        filename = Application.dataPath + "/playerData_" + PlayerID.id + ".csv";
+        TextWriter writer = File.AppendText(filename);
         writer.WriteLine("player ID, trial, timestamp, x, y, z, rotx, roty, rotz");
         writer.Close();
     }
@@ -61,6 +61,10 @@ public class CountBuildings : MonoBehaviour
                 {
                     buildingCounter++;
                     buildingsVisited.Add(FindClosestRedBuilding().name);
+                    foreach (TMP_Text g in FindClosestRedBuilding().GetComponentsInChildren<TMP_Text>())
+                    {
+                        g.color = new Color(0, 0, 0);
+                    }
                     input.text = "" + buildingCounter;
                 }
 
@@ -91,10 +95,10 @@ public class CountBuildings : MonoBehaviour
             float rotate_x = transform.rotation.x;
             float rotate_y = transform.rotation.y;
             float rotate_z = transform.rotation.z;
-            DateTime currTime = System.DateTime.Now;
+            String currTime = System.DateTime.Now.ToString("hh:mm:ss:fff");
 
             Datapoint sample = new Datapoint();
-            sample.timestamp = currTime.ToString();
+            sample.timestamp = currTime;
             sample.x = x;
             sample.y = y; 
             sample.z = z;

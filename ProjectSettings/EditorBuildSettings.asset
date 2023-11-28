@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LastFreeRecallScene.unity
     guid: 963248e353117f745a24f6d1991dc2be
+  - enabled: 1
+    path: Assets/Scenes/WarmUpScene.unity
+    guid: 2bfdc1e7189ed0041b914ae787466fef
   m_configObjects: {}
