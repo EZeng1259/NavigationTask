@@ -19,12 +19,13 @@ public class CountBuildings : MonoBehaviour
 
     string filename = "";
     float time = 0f;
+    float startTime = 0.00f; 
     [SerializeField] float interval = 250f;
 
     [System.Serializable]
     public class Datapoint
     {
-        public string timestamp;
+        public float timestamp;
         public float x;
         public float y; 
         public float z;
@@ -95,7 +96,8 @@ public class CountBuildings : MonoBehaviour
             float rotate_x = transform.rotation.x;
             float rotate_y = transform.rotation.y;
             float rotate_z = transform.rotation.z;
-            String currTime = System.DateTime.Now.ToString("hh:mm:ss:fff");
+            startTime += Time.deltaTime;
+            float currTime = startTime; 
 
             Datapoint sample = new Datapoint();
             sample.timestamp = currTime;

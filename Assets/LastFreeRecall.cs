@@ -9,8 +9,7 @@ using UnityEngine.UI;
 
 public class LastFreeRecall: MonoBehaviour
 {
-    public Button quitButton;
-    public Button returnButton;
+    public Button finishButton;
     public TMP_InputField input;
 
     string filename = "";
@@ -33,8 +32,7 @@ public class LastFreeRecall: MonoBehaviour
         Cursor.visible = true;
         input.ActivateInputField();
 
-        quitButton.onClick.AddListener(quit);
-        returnButton.onClick.AddListener(returnToEnvironment);
+        finishButton.onClick.AddListener(finish);
 
         trialNum++;
         filename = Application.dataPath + "/recallList_" + PlayerID.id + ".csv";
@@ -61,14 +59,9 @@ public class LastFreeRecall: MonoBehaviour
         itemList.Clear();
     }
 
-    public void quit()
+    public void finish()
     {
-        Application.Quit();
-    }
-
-    public void returnToEnvironment()
-    {
-        SceneManager.LoadScene("NavigationScene");
+        SceneManager.LoadScene("LastRewardScene");
     }
 
     public void writeList()

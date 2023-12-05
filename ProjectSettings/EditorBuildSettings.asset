@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WarmUpScene.unity
     guid: 2bfdc1e7189ed0041b914ae787466fef
+  - enabled: 1
+    path: Assets/Scenes/RewardScene.unity
+    guid: cbc70cf3573394f7c9b360b59189e043
+  - enabled: 1
+    path: Assets/Scenes/LastRewardScene.unity
+    guid: f21ee75e133c841aba69cb149d7d27fe
   m_configObjects: {}

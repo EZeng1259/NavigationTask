@@ -11,7 +11,7 @@ public class BeginRecall : MonoBehaviour
     void Start()
     {
         trialNum++;
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
     }
 

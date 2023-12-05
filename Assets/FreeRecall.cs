@@ -65,7 +65,7 @@ public class FreeRecall : MonoBehaviour
 
     public void returnToEnvironment()
     {
-        SceneManager.LoadScene("NavigationScene");
+        SceneManager.LoadScene("RewardScene");
     }
 
     public void writeList()
