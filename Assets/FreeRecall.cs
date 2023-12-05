@@ -15,16 +15,19 @@ public class FreeRecall : MonoBehaviour
     string filename = "";
     public static int trialNum = 0;
 
+    public float startTime = 0.00f;
+
     [System.Serializable]
     public class Recall
     {
         public string playerName; 
-        public string timestamp;
+        public float timestamp;
         public int trialNum;
         public string buildingName; 
     }
 
     public List<Recall> itemList = new List<Recall>();
+    public List<string> wordList = new List<string>(); 
 
     void Start()
     {
@@ -50,13 +53,15 @@ public class FreeRecall : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            String time = System.DateTime.Now.ToString("hh:mm:ss:fff");
+            wordList.Add(input.text);
+
             Recall item = new Recall();
-            item.timestamp = time;
+            item.timestamp = startTime;
             item.trialNum = trialNum;
             item.buildingName = input.text;
             itemList.Add(item);
             input.text = "";
+            startTime += Time.deltaTime; 
             input.ActivateInputField();
         }
         writeList();
