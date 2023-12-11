@@ -7,49 +7,60 @@ using System.IO;
 using System;
 using UnityEngine.UI;
 
-public class LastFreeRecall: MonoBehaviour
+public class FreeRecall : MonoBehaviour
 {
-    public Button finishButton;
+    public Button returnButton;
     public TMP_InputField input;
 
     string filename = "";
-    public static int trialNum = 0;
+    public static int trialNum = 1;
 
-    public float startTime = 0.00f; 
+    public float startTime = 0.00f;
 
     [System.Serializable]
     public class Recall
     {
-        public string playerName;
+        public string playerName; 
         public float timestamp;
         public int trialNum;
-        public string buildingName;
+        public string buildingName; 
     }
 
     public List<Recall> itemList = new List<Recall>();
-    public List<string> wordList = new List<string>();
+    public static List<string> wordList = new List<string>(); 
 
     void Start()
     {
+        wordList.Clear(); 
+
+        returnButton.onClick.AddListener(returnToEnvironment);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         input.ActivateInputField();
 
-        finishButton.onClick.AddListener(finish);
+        filename = Application.dataPath + "/RecallData/recallList_" + PlayerID.id +  ".csv";
+
+        if (trialNum == 1)
+        {
+            TextWriter writer = new StreamWriter(filename, true);
+            writer.WriteLine("player ID, round, timestamp, shop name");
+            writer.Close();
+        }
+
 
         trialNum++;
-        filename = Application.dataPath + "/recallList_" + PlayerID.id + ".csv";
+        if (trialNum > 5)
+        {
+            Application.Quit();
+        }
 
-        TextWriter writer = new StreamWriter(filename, true);
-        writer.WriteLine("player ID, round, timestamp, shop name");
-        writer.Close();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            wordList.Add(input.text);
+            wordList.Add(input.text.Trim().ToLower());
 
             Recall item = new Recall();
             item.timestamp = startTime;
@@ -57,21 +68,21 @@ public class LastFreeRecall: MonoBehaviour
             item.buildingName = input.text;
             itemList.Add(item);
             input.text = "";
-            startTime += Time.deltaTime;
+            startTime += Time.deltaTime; 
             input.ActivateInputField();
         }
         writeList();
-        itemList.Clear();
+        itemList.Clear(); 
     }
 
-    public void finish()
+    public void returnToEnvironment()
     {
-        SceneManager.LoadScene("LastRewardScene");
+        SceneManager.LoadScene("RewardScene");
     }
 
     public void writeList()
     {
-        if (itemList.Count > 0)
+        if(itemList.Count > 0)
         {
             TextWriter writer = File.AppendText(filename);
             for (int i = 0; i < itemList.Count; i++)

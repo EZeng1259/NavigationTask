@@ -11,7 +11,7 @@ public class CountBuildings : MonoBehaviour
 {
     public TMP_Text input;
     public int buildingCounter = 0; //counts number of red buildings encountered
-    public int trialNum = 0; //counts number of times player has navigated the environment
+    int trialNum = FreeRecall.trialNum; //counts number of times player has navigated the environment
 
     float minDist = 15f;
 
@@ -19,7 +19,7 @@ public class CountBuildings : MonoBehaviour
 
     string filename = "";
     float time = 0f;
-    float startTime = 0.00f; 
+    float startTime = 0.00f;
     [SerializeField] float interval = 250f;
 
     [System.Serializable]
@@ -43,11 +43,15 @@ public class CountBuildings : MonoBehaviour
 
     void Start()
     {
-        trialNum++;
-        filename = Application.dataPath + "/playerData_" + PlayerID.id + ".csv";
-        TextWriter writer = File.AppendText(filename);
-        writer.WriteLine("player ID, trial, timestamp, x, y, z, rotx, roty, rotz");
-        writer.Close();
+        filename = Application.dataPath + "/NavigationData/playerData_" + PlayerID.id + ".csv";
+
+        if (trialNum == 1)
+        {
+            TextWriter writer = new StreamWriter(filename, true);
+            writer.WriteLine("player ID, trial, timestamp, x, y, z, rotx, roty, rotz");
+            writer.Close();
+        }
+        
     }
 
     void Update()
@@ -93,9 +97,9 @@ public class CountBuildings : MonoBehaviour
             float x = transform.position.x;
             float y = transform.position.y;
             float z = transform.position.z;
-            float rotate_x = transform.rotation.x;
-            float rotate_y = transform.rotation.y;
-            float rotate_z = transform.rotation.z;
+            float rotate_x = Camera.main.transform.rotation.x;
+            float rotate_y = Camera.main.transform.rotation.y;
+            float rotate_z = Camera.main.transform.rotation.z;
             startTime += Time.deltaTime;
             float currTime = startTime; 
 
