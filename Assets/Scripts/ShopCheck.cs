@@ -9,7 +9,7 @@ public class ShopCheck : MonoBehaviour
     List<string> wordsToCheck = FreeRecall.wordList;
 
     List<string> storeNames = new List<string>
-            {"gym", "hardware store", "music store", "pharmacy", "bakery", "bank", "dentist", "cafe", "jewelery store", "butcher store", "grocery store",
+            {"gym", "hardware store", "music store", "pharmacy", "bakery", "bank", "dentist", "cafe", "jewelry store", "butcher store", "grocery store",
                "bike shop", "pizzeria", "toy store", "book store", "barber shop", "boutique", "craft shop", "pet store"};
 
     List<string> storesSeen = new List<string>(); 
