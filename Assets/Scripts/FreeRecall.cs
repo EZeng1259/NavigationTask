@@ -38,7 +38,7 @@ public class FreeRecall : MonoBehaviour
         Cursor.visible = true;
         input.ActivateInputField();
 
-        filename = Application.streamingAssetsPath + "/RecallData/recallList_" + PlayerID.id +  ".csv";
+        filename = @"UserData/RecallData/recallList_" + PlayerID.id +  ".csv";
 
         if (trialNum == 1)
         {

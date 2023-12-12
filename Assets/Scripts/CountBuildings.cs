@@ -42,7 +42,7 @@ public class CountBuildings : MonoBehaviour
 
     void Start()
     {
-        filename = Application.streamingAssetsPath + "/NavigationData/playerData_" + PlayerID.id + ".csv";
+        filename = @"UserData/NavigationData/playerData_" + PlayerID.id + ".csv";
         FreeRecall.trialNum++; 
         if (FreeRecall.trialNum == 1)
         {
