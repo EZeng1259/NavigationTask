@@ -88,7 +88,16 @@ public class CountBuildings : MonoBehaviour
 
         if (buildingCounter == 19)
         {
-            SceneManager.LoadScene("StartRecallScene");
+            if(FreeRecall.trialNum == 1)
+            {
+                SceneManager.LoadScene("StartRecallScene");
+            }
+            else
+            {
+                SceneManager.LoadScene("NavigationScene");
+            }
+
+
         }
 
         time += Time.deltaTime;
