@@ -40,7 +40,7 @@ public class LastFreeRecall: MonoBehaviour
         finishButton.onClick.AddListener(finish);
 
         trialNum++;
-        filename = Application.dataPath + "/RecallData/recallList_" + PlayerID.id + ".csv";
+        filename = Application.streamingAssetsPath + "/RecallData/recallList_" + PlayerID.id + ".csv";
     }
 
     void Update()

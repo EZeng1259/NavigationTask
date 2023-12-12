@@ -28,7 +28,7 @@ public class LastShopCheck : MonoBehaviour
     {
         foreach (string word in wordsToCheck)
         {
-            if ((!storesSeen.Contains(word)) && (storeNames.Contains(word) || storeNames.Any(word1 => word1.Contains(word))))
+            if ((!storesSeen.Contains(word)) && (storeNames.Contains(word) || storeNames.Any(word1 => word1.Contains(word) && word.Length > word1.Length * 0.3)))
             {
                 ShopCheck.correctStores += 1;
                 storesSeen.Add(word);
