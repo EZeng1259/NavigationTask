@@ -13,7 +13,7 @@ public class FreeRecall : MonoBehaviour
     public TMP_InputField input;
 
     string filename = "";
-    public static int trialNum = 1;
+    public static int trialNum = 0;
 
     public float startTime = 0.00f;
 
@@ -38,7 +38,7 @@ public class FreeRecall : MonoBehaviour
         Cursor.visible = true;
         input.ActivateInputField();
 
-        filename = Application.persistentDataPath + "/RecallData/recallList_" + PlayerID.id +  ".csv";
+        filename = Application.streamingAssetsPath + "/RecallData/recallList_" + PlayerID.id +  ".csv";
 
         if (trialNum == 1)
         {
@@ -47,8 +47,6 @@ public class FreeRecall : MonoBehaviour
             writer.Close();
         }
 
-
-        trialNum++;
         if (trialNum > 5)
         {
             Application.Quit();

@@ -11,7 +11,6 @@ public class CountBuildings : MonoBehaviour
 {
     public TMP_Text input;
     public int buildingCounter = 0; //counts number of red buildings encountered
-    int trialNum = FreeRecall.trialNum; //counts number of times player has navigated the environment
 
     float minDist = 15f;
 
@@ -43,9 +42,9 @@ public class CountBuildings : MonoBehaviour
 
     void Start()
     {
-        filename = Application.persistentDataPath + "/NavigationData/playerData_" + PlayerID.id + ".csv";
-
-        if (trialNum == 1)
+        filename = Application.streamingAssetsPath + "/NavigationData/playerData_" + PlayerID.id + ".csv";
+        FreeRecall.trialNum++; 
+        if (FreeRecall.trialNum == 1)
         {
             TextWriter writer = new StreamWriter(filename, true);
             writer.WriteLine("player ID, trial, timestamp, x, y, z, rotx, roty, rotz");
@@ -92,10 +91,15 @@ public class CountBuildings : MonoBehaviour
             {
                 SceneManager.LoadScene("StartRecallScene");
             }
+            else if(FreeRecall.trialNum < 5)
+            {
+                SceneManager.LoadScene("FreeRecallScene");
+            }
             else
             {
-                SceneManager.LoadScene("NavigationScene");
+                SceneManager.LoadScene("LastFreeRecallScene");
             }
+
 
 
         }
@@ -138,7 +142,7 @@ public class CountBuildings : MonoBehaviour
 
             for (int i = 0; i < dataPoints.Count; i++)
             {
-                writer.WriteLine(PlayerID.id + "," + trialNum + "," + dataPoints[i].timestamp + "," + dataPoints[i].x + "," + dataPoints[i].y + "," +
+                writer.WriteLine(PlayerID.id + "," + FreeRecall.trialNum + "," + dataPoints[i].timestamp + "," + dataPoints[i].x + "," + dataPoints[i].y + "," +
                     dataPoints[i].z + "," + dataPoints[i].rotx + "," + dataPoints[i].roty + "," +
                     dataPoints[i].rotz);
             }

@@ -5,12 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class BeginRecall : MonoBehaviour
 {
-    public static int trialNum = 0; 
     
     // Start is called before the first frame update
     void Start()
     {
-        trialNum++;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
     }
@@ -18,19 +16,9 @@ public class BeginRecall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(trialNum >= 5)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                SceneManager.LoadScene("LastFreeRecallScene");
-            }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                SceneManager.LoadScene("FreeRecallScene");
-            }
+            SceneManager.LoadScene("FreeRecallScene");
         }
     }
 }
