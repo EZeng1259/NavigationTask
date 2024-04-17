@@ -1,0 +1,153 @@
+trial, timestamp, building name
+1,14.19971,Butcher
+1,85.90906,Pharmacy
+1,96.56732,Hardware Store
+1,101.4889,Pet Store
+1,117.5025,Toy Store
+1,137.6014,Jewelry
+1,148.5448,Bike Shop
+1,159.8544,Cafe
+1,170.0461,Gallery
+1,183.0902,Music Store
+1,196.7682,Pizzeria
+1,201.4557,Bakery
+1,214.6501,Gym
+1,229.396,Book Store
+1,237.135,Boutique
+1,255.2497,Dentist
+1,262.3733,Bank
+1,275.9504,Supermarket
+1,284.6409,Barber
+2,15.88232,Butcher
+2,28.65979,Book Store
+2,40.0849,Boutique
+2,66.19012,Supermarket
+2,76.96558,Barber
+2,92.0957,Bank
+2,100.6029,Dentist
+2,113.5461,Music Store
+2,126.9583,Bakery
+2,132.2284,Pizzeria
+2,145.8241,Cafe
+2,156.233,Jewelry
+2,177.7676,Toy Store
+2,196.1656,Pharmacy
+2,220.8748,Pet Store
+2,225.3905,Hardware Store
+2,239.3345,Gallery
+2,335.9159,Bike Shop
+2,352.4135,Gym
+3,7.762207,Gym
+3,27.29614,Bike Shop
+3,42.79102,Jewelry
+3,75.66858,Toy Store
+3,93.29883,Pharmacy
+3,103.9255,Barber
+3,111.9152,Supermarket
+3,125.042,Bank
+3,134.9001,Dentist
+3,157.7368,Hardware Store
+3,163.2913,Pet Store
+3,174.9346,Gallery
+3,185.6433,Music Store
+3,202.641,Boutique
+3,212.1155,Book Store
+3,219.5552,Butcher
+3,227.595,Bakery
+3,233.0988,Pizzeria
+3,246.3779,Cafe
+4,4.205933,Gym
+4,13.18115,Butcher
+4,23.12292,Book Store
+4,31.86304,Boutique
+4,47.07507,Bank
+4,59.31934,Supermarket
+4,69.56482,Barber
+4,79.75317,Pharmacy
+4,93.48047,Hardware Store
+4,98.43555,Toy Store
+4,117.9353,Pet Store
+4,137.5015,Dentist
+4,150.0116,Music Store
+4,162.7391,Gallery
+4,182.5222,Bakery
+4,189.4105,Pizzeria
+4,202.5057,Cafe
+4,210.2124,Jewelry
+4,221.0048,Bike Shop
+5,7.016235,Gym
+5,14.45313,Butcher
+5,22.36182,Book Store
+5,31.41687,Boutique
+5,52.50098,Music Store
+5,62.81018,Bakery
+5,67.82983,Pizzeria
+5,80.35803,Cafe
+5,92.1012,Bike Shop
+5,103.4271,Jewelry
+5,122.026,Toy Store
+5,128.6639,Hardware Store
+5,133.869,Pet Store
+5,143.744,Gallery
+5,160.2246,Dentist
+5,167.9968,Bank
+5,181.0752,Supermarket
+5,189.2654,Barber
+5,198.9067,Pharmacy
+6,8.833252,Gym
+6,16.88989,Butcher
+6,29.96802,Book Store
+6,39.0249,Boutique
+6,50.76733,Bank
+6,63.86255,Supermarket
+6,75.42114,Barber
+6,90.40039,Dentist
+6,100.9092,Music Store
+6,113.02,Gallery
+6,127.6155,Jewelry
+6,138.8254,Bike Shop
+6,147.4988,Cafe
+6,161.0269,Pizzeria
+6,165.9812,Bakery
+6,206.8982,Pharmacy
+6,220.0759,Toy Store
+6,225.5627,Hardware Store
+6,230.6016,Pet Store
+7,4.336914,Gym
+7,12.3772,Butcher
+7,32.45972,Bakery
+7,37.71338,Pizzeria
+7,51.25879,Cafe
+7,62.98535,Bike Shop
+7,73.82764,Jewelry
+7,101.4175,Toy Store
+7,110.592,Hardware Store
+7,116.3457,Pet Store
+7,131.2087,Pharmacy
+7,141.9844,Barber
+7,149.6409,Supermarket
+7,162.7852,Bank
+7,170.8079,Dentist
+7,185.7202,Music Store
+7,196.3457,Gallery
+7,231.8093,Boutique
+7,242.501,Book Store
+8,4.290527,Gym
+8,11.68164,Butcher
+8,19.18628,Book Store
+8,28.69409,Boutique
+8,42.23853,Bank
+8,55.13403,Supermarket
+8,64.92432,Barber
+8,74.91626,Pharmacy
+8,87.26025,Toy Store
+8,93.64771,Hardware Store
+8,99.85376,Pet Store
+8,119.2529,Dentist
+8,127.427,Music Store
+8,138.4519,Gallery
+8,153.9487,Pizzeria
+8,159.8203,Bakery
+8,174.9666,Cafe
+8,186.009,Bike Shop
+8,196.8181,Jewelry
