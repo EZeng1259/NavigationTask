@@ -1,0 +1,60 @@
+player ID, round, timestamp, shop name
+,1,05:52:30:453,barber shop 
+,1,05:52:37:438,grocery store 
+,1,05:52:42:687,bike store
+,1,05:52:45:538,gym
+,1,05:52:55:945,cafe
+,1,05:52:58:948,bookstore
+,1,05:53:18:804,daycare
+,1,05:53:36:833,bakery
+player ID, round, timestamp, shop name
+,2,05:56:02:707,grocery store
+,2,05:56:05:820,barber shop 
+,2,05:56:07:379,cafe
+,2,05:56:13:738,bike store 
+,2,05:56:17:243,gym
+,2,05:56:26:046,craft store
+,2,05:56:36:047,movie store
+,2,05:56:44:836,day care
+player ID, round, timestamp, shop name
+,3,05:59:02:632,pizzaria
+,3,05:59:06:678,music store
+,3,05:59:08:487,gym 
+,3,05:59:11:172,pharmacy
+,3,05:59:15:076,cafe
+,3,05:59:17:711,book store
+,3,05:59:21:620,grocery store 
+,3,05:59:24:077,gym 
+,3,05:59:25:220,bank
+,3,05:59:30:286,pet store 
+,3,05:59:32:933,library 
+,3,05:59:47:249,
+player ID, round, timestamp, shop name
+,4,06:02:26:219,gym
+,4,06:02:27:988,bakery
+,4,06:02:28:055,
+,4,06:02:29:848,pet store
+,4,06:02:31:498,boutique
+,4,06:02:38:821,pizzaria
+,4,06:02:41:938,pharmacy
+,4,06:02:45:449,hardware store 
+,4,06:02:46:868,bank 
+,4,06:02:49:286,barber shop 
+,4,06:02:53:005,grocery store 
+,4,06:02:59:116,music store 
+,4,06:03:05:805,jewerly store 
+,4,06:03:14:094,craft shop 
+,4,06:03:26:269,bike store 
+player ID, round, timestamp, shop name
+,1,06:05:23:065,craft shop
+,1,06:05:29:437,pizzaeria
+,1,06:05:34:628,pet store 
+,1,06:05:36:865,boutique 
+,1,06:05:41:037,butcher shop 
+,1,06:05:42:580,gym
+,1,06:05:43:797,bank
+,1,06:05:47:365,hardware store
+,1,06:05:50:334,pharmacy 
+,1,06:05:54:437,bookstore
+,1,06:06:03:976,jewerly store 
+player ID, round, timestamp, shop name

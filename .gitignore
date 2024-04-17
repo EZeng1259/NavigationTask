@@ -72,9 +72,9 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Unity packages 
-/[Aa]ssets/*
-!/[Aa]ssets/Scenes/
-!/[Aa]ssets/Scripts/
-!/[Aa]ssets/StreamingAssets/
-!/[Aa]ssets/TextMeshPro
+#/[Aa]ssets/*
+#!/[Aa]ssets/Scenes/
+#!/[Aa]ssets/Scripts/
+#!/[Aa]ssets/StreamingAssets/
+#!/[Aa]ssets/TextMeshPro
 /[Bb]uiltProjects/
