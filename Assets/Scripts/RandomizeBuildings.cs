@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.IO;
 using System;
+using UnityEngine.Networking;
 
 public class RandomizeBuildings : MonoBehaviour
 {
-    private List<string> buildingNames = new List<string> {"Gym", "Hardware Store", "Music Store", "Pharmacy", "Bakery", "Bank", "Dentist", "Cafe", "Jewelry", "Butcher", "Supermarket",
-               "Bike Shop", "Pizzeria", "Toy Store", "Book Store", "Barber", "Boutique", "Gallery", "Pet Store"};
+    private List<string> buildingNames = new List<string> {
+        "Gym", "Hardware Store", "Music Store", "Pharmacy", "Bakery", "Bank",
+        "Dentist", "Cafe", "Jewelry", "Butcher", "Supermarket", "Bike Shop",
+        "Pizzeria", "Toy Store", "Book Store", "Barber", "Boutique", "Gallery", "Pet Store"
+    };
 
-    private static List<string> randomizedList = new List<string>(); 
-
+    private static List<string> randomizedList = new List<string>();
 
     public GameObject redbuilding1;
     public GameObject redbuilding2;
@@ -33,7 +35,7 @@ public class RandomizeBuildings : MonoBehaviour
     public GameObject redbuilding18;
     public GameObject redbuilding19;
 
-    string filename = "";
+    public string apiUrl = "https://salty-thicket-48002.herokuapp.com/write_data"; // API URL
 
     // Start is called before the first frame update
     void Start()
@@ -41,15 +43,11 @@ public class RandomizeBuildings : MonoBehaviour
         if (CountBuildings.trialNum == 1)
         {
             randomizedList = Shuffle(buildingNames);
-            filename = @"UserData/RandomizedOrderData/" + PlayerID.id + ".csv";
-
-            TextWriter writer = new StreamWriter(filename, true);
 
             for (int i = 0; i < randomizedList.Count; i++)
             {
-                writer.WriteLine(i + 1 + "," + randomizedList[i]);
+                SendDataToServer(PlayerID.id, i + 1, randomizedList[i]);
             }
-            writer.Close();
         }
 
         redbuilding1.GetComponentInChildren<TMP_Text>().text = randomizedList[0];
@@ -115,6 +113,7 @@ public class RandomizeBuildings : MonoBehaviour
     {
 
     }
+
     public List<T> Shuffle<T>(List<T> list)
     {
         for (var i = 0; i < list.Count - 1; ++i)
@@ -124,6 +123,42 @@ public class RandomizeBuildings : MonoBehaviour
             list[i] = list[random];
             list[random] = tmp;
         }
-        return list; 
+        return list;
+    }
+
+    public void SendDataToServer(string playerId, int order, string buildingName)
+    {
+        StartCoroutine(SendDataCoroutine(playerId, order, buildingName));
+    }
+
+    private IEnumerator SendDataCoroutine(string playerId, int order, string buildingName)
+    {
+        var data = new
+        {
+            table_name = "randomizedbuildingorder",
+            participant_id = playerId,
+            order = order,
+            building_name = buildingName
+        };
+
+        string jsonData = JsonUtility.ToJson(data);
+
+        using (UnityWebRequest www = UnityWebRequest.PostWwwForm(apiUrl, ""))
+        {
+            byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonData);
+            www.uploadHandler = new UploadHandlerRaw(jsonToSend);
+            www.downloadHandler = new DownloadHandlerBuffer();
+            www.SetRequestHeader("Content-Type", "application/json");
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log("Data sent successfully to RandomizedBuildingOrder table");
+            }
+        }
     }
 }

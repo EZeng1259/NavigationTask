@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-using System.IO;
 using System;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class LastFreeRecall: MonoBehaviour
+public class LastFreeRecall : MonoBehaviour
 {
     public Button finishButton;
     public TMP_InputField input;
 
-    string filename = "";
     public static int trialNum = 0;
+    public float startTime = 0.00f;
 
-    public float startTime = 0.00f; 
+    public string apiUrl = "https://salty-thicket-48002.herokuapp.com/write_data"; // API URL
 
     [System.Serializable]
     public class Recall
@@ -31,7 +31,7 @@ public class LastFreeRecall: MonoBehaviour
 
     void Start()
     {
-        wordList.Clear(); 
+        wordList.Clear();
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -40,7 +40,6 @@ public class LastFreeRecall: MonoBehaviour
         finishButton.onClick.AddListener(finish);
 
         trialNum++;
-        filename = @"UserData/RecallData/recallList_" + PlayerID.id + ".csv";
     }
 
     void Update()
@@ -58,6 +57,7 @@ public class LastFreeRecall: MonoBehaviour
             startTime += Time.deltaTime;
             input.ActivateInputField();
         }
+
         writeList();
         itemList.Clear();
     }
@@ -71,13 +71,47 @@ public class LastFreeRecall: MonoBehaviour
     {
         if (itemList.Count > 0)
         {
-            TextWriter writer = File.AppendText(filename);
             for (int i = 0; i < itemList.Count; i++)
             {
-                writer.WriteLine(PlayerID.id + "," + itemList[i].trialNum + "," + itemList[i].timestamp + "," + itemList[i].buildingName);
+                SendDataToServer(PlayerID.id, itemList[i].trialNum, itemList[i].timestamp, itemList[i].buildingName);
             }
+        }
+    }
 
-            writer.Close();
+    public void SendDataToServer(string playerId, int trialNum, float timestamp, string buildingName)
+    {
+        StartCoroutine(SendDataCoroutine(playerId, trialNum, timestamp, buildingName));
+    }
+
+    private IEnumerator SendDataCoroutine(string playerId, int trialNum, float timestamp, string buildingName)
+    {
+        var data = new
+        {
+            table_name = "freerecall",
+            participant_id = playerId,
+            trial = trialNum,
+            timestamp = timestamp,
+            building_name = buildingName
+        };
+
+        string jsonData = JsonUtility.ToJson(data);
+
+        using (UnityWebRequest www = UnityWebRequest.PostWwwForm(apiUrl, ""))
+        {
+            byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonData);
+            www.uploadHandler = new UploadHandlerRaw(jsonToSend);
+            www.downloadHandler = new DownloadHandlerBuffer();
+            www.SetRequestHeader("Content-Type", "application/json");
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log("Data sent successfully to FreeRecall table");
+            }
         }
     }
 }

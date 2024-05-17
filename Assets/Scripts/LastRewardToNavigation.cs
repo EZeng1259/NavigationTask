@@ -14,9 +14,9 @@ public class LastRewardToNavigation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        filename = @"UserData/RecallData/" + PlayerID.id + ".csv";
+        //filename = @"UserData/RecallData/" + PlayerID.id + ".csv";
 
-        button.onClick.AddListener(quit);
+        button.onClick.AddListener(moveToMap);
     }
 
     // Update is called once per frame
@@ -25,12 +25,12 @@ public class LastRewardToNavigation : MonoBehaviour
 
     }
 
-    public void quit()
+    public void moveToMap()
     {
-        TextWriter writer1 = File.AppendText(filename);
+        /*TextWriter writer1 = File.AppendText(filename);
         writer1.WriteLine("Final Score: " + CountBuildings.score);
-        writer1.Close();
-        SceneManager.LoadScene("MapInstructionScene");
+        writer1.Close();*/
+        SceneManager.LoadScene("MapSlide1");
     }
 
 }
