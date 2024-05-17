@@ -5355,7 +5355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press 'Spacebar' when you are near a red building
+  m_text: Press 'Spacebar' when you are directly in front of the name of a red building
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5382,8 +5382,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7648,11 +7648,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27362f102210871479ef07463c000ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toptext: {fileID: 922705193}
+  toptext: {fileID: 0}
   buildingCounter: 0
   interval: 250
+  apiUrl: https://salty-thicket-48002.herokuapp.com/write_data
   dataPoints: []
-  psiturkServerURL: https://your-psiturk-server-url/receive_data
 --- !u!1 &1333854767
 GameObject:
   m_ObjectHideFlags: 0
