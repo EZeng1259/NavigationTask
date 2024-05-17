@@ -24,12 +24,12 @@ public class MoveToInstructionsWarmup : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             PlayerID.id = input.text; 
-            SceneManager.LoadScene("WarmupSlide1");
+            SceneManager.LoadScene("WarmupIntroScene");
         }
     }
 
     void changeScene()
     {
-        SceneManager.LoadScene("WarmupSlide1");
+        SceneManager.LoadScene("WarmupIntroScene");
     }
 }
