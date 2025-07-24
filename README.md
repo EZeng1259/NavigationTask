@@ -24,6 +24,6 @@ Upon completion, there are two additional tasks:
 - Cognitive mapping task to examine each participants' ability to create a bird-eye-view map of the environment from memory
 
 # Technologies Used
--Unity
--C#
--REST APIs
+- Unity
+- C#
+- REST APIs
