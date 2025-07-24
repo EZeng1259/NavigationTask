@@ -1,11 +1,9 @@
-# Navigation Task 
-
-## Unity Simulation for Human Navigation Research
+# Unity Simulation for Human Navigation Research
 This repository contains the Unity project and C# scripts for a 3D simulation built for my graduate research in cognitive science. The application is a self-contained virtual environment designed to study how humans learn and optimize routes in a task analogous to the Traveling Salesman Problem (TSP), with a specific focus on spatial and temporal memory.
 
 The primary purpose of this project was to create a robust tool for data collection in a controlled experimental setting.
 
-# Core Features
+## Core Features
 - Interactive 3D Environment: A fully explorable virtual marketplace containing 19 uniquely named stores, built with the Unity engine.
 
 - First-Person Navigation: Standard first-person mouse and keyboard controls for intuitive movement and interaction within the environment.
