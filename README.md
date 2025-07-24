@@ -12,7 +12,7 @@ The primary purpose of this project was to create a robust tool for data collect
 
 - API Integration: Includes a communication module for sending captured JSON data to a backend server via REST API calls, allowing for secure and reliable data collection.
 
-# Task 
+## Task 
 A participant navigates the virtual marketplace with the goal of visiting all 19 stores in the shortest possible distance. The partcipant's physical coordinates, camera movements, visited stores, are all recorded to it's separate database/spreadsheet. 
 
 The participant completes this task for a total of 8 trials.
@@ -21,7 +21,7 @@ Upon completion, there are two additional tasks:
 - Free recall task to investigate the number of stores names the participants are able to memorize
 - Cognitive mapping task to examine each participants' ability to create a bird-eye-view map of the environment from memory
 
-# Technologies Used
+## Technologies Used
 - Unity
 - C#
 - REST APIs
